@@ -57,6 +57,7 @@
 #define RCC_u8_APB2_IO_PORT_C_RESET		4
 #define RCC_u8_APB2_IO_PORT_B_RESET		3
 #define RCC_u8_APB2_IO_PORT_A_RESET		2
+#define RCC_u8_APB2_IO_ALTERNATE_RESET	2
 
 
 /*********************************************************************
@@ -117,6 +118,7 @@
 #define RCC_u8_APB2_IO_PORT_C_ENABLE	4
 #define RCC_u8_APB2_IO_PORT_B_ENABLE	3
 #define RCC_u8_APB2_IO_PORT_A_ENABLE	2
+#define RCC_u8_APB2_IO_ALTERNATE_ENABLE	0
 
 
 /*********************************************************************
