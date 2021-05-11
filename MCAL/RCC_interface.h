@@ -159,6 +159,5 @@ u8	 RCC_u8InterruptDisable(u8 Copy_u8InterruptId);
 u8	 RCC_u8ClearInterruptFlag(u8 Copy_u8FlagId);
 u8	 RCC_u8PeripheralResetRegister(u8 Copy_u8BusId, u8 Copy_u8PeriId);
 void RCC_voidBackupDomainReset(void);
-void RCC_voidRTCClockEnable(void);
 
 #endif
