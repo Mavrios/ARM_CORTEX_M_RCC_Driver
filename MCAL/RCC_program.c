@@ -504,6 +504,4 @@ u8	 RCC_u8PeripheralResetRegister(u8 Copy_u8BusId, u8 Copy_u8PeriId){
 void RCC_voidBackupDomainReset(void){
 	SET_BIT(RCC->BDCR , 16);
 }
-void RCC_voidRTCClockEnable(void){
 
-}
