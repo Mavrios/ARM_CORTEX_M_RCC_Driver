@@ -144,4 +144,22 @@
 
 #define RCC_u8_AHB_PRESCALLER	RCC_u8_AHB_CLOCK_NOT_DIVIDED
 
+/********** RTC CLOCK SOURCE ***********
+ * 								  	   *
+ *  Options : 1- RCC_u8_RTC_NO_SOURCE *
+ *  		  2- RCC_u8_RTC_LSE_SOURCE *
+ * 			  3- RCC_u8_RTC_LSI_SOURCE *
+ * 			  4- RCC_u8_RTC_HSE_SOURCE *
+ * 			  (HSE  is divided by 128) *
+ ***************************************/
+#define RCC_u8_RTC_CLOCK_SOURCE	RCC_u8_RTC_NO_SOURCE
+
+
+/**************	RTC EXTERNAL CLOCK BYPASS ***************
+ * 								  	  		    		*
+ *  Options : 1- RCC_u8_RTC_EXTERNAL_NO_BYPASS			*
+ *  		  2- RCC_u8_RTC_EXTERNAL_BYPASS_ENABLE 		*
+ ********************************************************/
+#define RCC_u8_RTC_EXTERNAL_CLOCK_BYPASS	RCC_u8_RTC_EXTERNAL_NO_BYPASS
+
 #endif

@@ -84,4 +84,18 @@
 #define RCC_u8_AHB_CLOCK_DIVIDED_BY_256			7
 #define RCC_u8_AHB_CLOCK_DIVIDED_BY_512			8
 
+
+
+#define RCC_u8_RTC_NO_SOURCE	0
+#define RCC_u8_RTC_LSE_SOURCE	1
+#define RCC_u8_RTC_LSI_SOURCE	1
+#define RCC_u8_RTC_HSE_SOURCE	1
+
+
+
+#define RCC_u8_RTC_EXTERNAL_NO_BYPASS		0
+#define RCC_u8_RTC_EXTERNAL_BYPASS_ENABLE	1
+
+
 #endif
+

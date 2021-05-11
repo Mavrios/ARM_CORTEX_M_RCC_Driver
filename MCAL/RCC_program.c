@@ -346,6 +346,44 @@ u8 RCC_u8InitSysClock(void){
 			SET_BIT(RCC->CFGR , 5);
 			SET_BIT(RCC->CFGR , 4);
 	#endif
+
+		/*********************************************************************
+		******************    RTC EXTERNAL CLOCK BYPASS    *******************
+		**********************************************************************/
+	#if	RCC_u8_RTC_EXTERNAL_CLOCK_BYPASS == RCC_u8_RTC_EXTERNAL_BYPASS_ENABLE
+		SET_BIT(RCC->BDCR , 2);
+	#else
+		CLR_BIT(RCC->BDCR , 2);
+	#endif
+
+		/*********************************************************************
+		************************    RTC CLOCK SOURCE    **********************
+		*********************************************************************/
+	#if	RCC_u8_RTC_CLOCK_SOURCE		==	RCC_u8_RTC_LSE_SOURCE
+		SET_BIT(RCC->BDCR , 0);
+		for(LOC_u32Iterator = 0 ; LOC_u32Iterator < 10000 ; LOC_u32Iterator++){
+					if(GET_BIT(RCC->BDCR,1) == 0){
+						LOC_u8Feedback	=	RCC_NOK;
+					}
+					else{
+						LOC_u8Feedback	=	RCC_OK;
+						break;
+					}
+		}
+		SET_BIT(RCC->BDCR , 8);
+		CLR_BIT(RCC->BDCR , 9);
+		SET_BIT(RCC->BDCR , 15);
+
+	#elif	RCC_u8_RTC_CLOCK_SOURCE	==	RCC_u8_RTC_LSI_SOURCE
+		CLR_BIT(RCC->BDCR , 8);
+		SET_BIT(RCC->BDCR , 9);
+		SET_BIT(RCC->BDCR , 15);
+	#elif	RCC_u8_RTC_CLOCK_SOURCE	==	RCC_u8_RTC_HSE_SOURCE
+		SET_BIT(RCC->BDCR , 8);
+		SET_BIT(RCC->BDCR , 9);
+		SET_BIT(RCC->BDCR , 15);
+	#endif
+
 	return LOC_u8Feedback;
 }
 
@@ -463,3 +501,9 @@ u8	 RCC_u8PeripheralResetRegister(u8 Copy_u8BusId, u8 Copy_u8PeriId){
 }
 
 
+void RCC_voidBackupDomainReset(void){
+	SET_BIT(RCC->BDCR , 16);
+}
+void RCC_voidRTCClockEnable(void){
+
+}
